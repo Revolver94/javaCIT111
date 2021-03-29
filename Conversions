@@ -1,0 +1,96 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package week8_methods2;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author tom
+ */
+public class Conversions {
+    public static void main(String[] args) {
+        //display greeting
+         System.out.println("Welcome to my conversion tool!");
+         System.out.println("**********************************************");
+         Scanner scan = new Scanner(System.in);
+         
+         //request user input
+         System.out.println("Enter miles to convert to feet.");
+         System.out.println("Example format: 55.0 or 70.4");
+         System.out.print(">> ");
+         double inputMiles = scan.nextDouble();
+         
+         //call miles conversion method
+         double returnedFeet = calcMilesFeet(inputMiles);
+         
+         //print conversion results
+         System.out.println("Total feet: " + returnedFeet);
+         System.out.println("**********************************************");
+         
+         //request user input
+         System.out.println("Enter pounds to convert to kilos.");
+         System.out.println("Example format: 55.0 or 70.4");
+         System.out.print(">> ");
+         double inputPounds = scan.nextDouble();
+         
+         //call miles conversion method
+         double returnedKilos = calcPoundsKilos(inputPounds);
+         
+         //print conversion results
+         System.out.println("Total kilos: " + returnedKilos);
+         System.out.println("**********************************************");
+         
+         //request user input
+         System.out.println("Enter gallons to convert to ounces.");
+         System.out.println("Example format: 55.0 or 70.4");
+         System.out.print(">> ");
+         double inputGallons = scan.nextDouble();
+         
+         //call miles conversion method
+         double returnedOunces = calcGallonsOunces(inputGallons);
+         
+         //print conversion results
+         System.out.println("Total ounces: " + returnedOunces);
+         System.out.println("**********************************************");
+         
+         
+         
+        
+    }
+    
+    public static double calcMilesFeet(double Miles){
+        
+//formula to convert miles into feet
+double feet = Miles * 5280;
+
+      return feet; // return value of feet
+    }//close method
+    
+    public static double calcPoundsKilos(double Pounds){
+        
+//formula to convert pounds to kilos
+double kilos = Pounds * 0.45359237;
+
+      return kilos; // placeholder return value
+    }//close method
+    
+    public static double calcGallonsOunces(double Gallons){
+        
+//formula to convert gallons to ounces
+double ounces = Gallons * 128;
+
+      return ounces; // placeholder return value
+    }//close method
+}//close class    
+      
+    
+
+     
+       
+        
+    
+
