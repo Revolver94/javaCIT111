@@ -1,0 +1,131 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Fundamentals;
+import java.util.Scanner;
+import java.util.Random;
+
+/**
+ *
+ * @author tom
+ */
+ public class War {
+    final static int MIN_CARD = 2;
+    final static int MAX_CARD = 15;
+    static int PLAYER_CHOICE = 1;
+    static int PLAYER_WINS = 0;
+    static int DEALER_WINS = 0;
+    static int TIES = 0;
+  public static void main(String[] args){ 
+      System.out.println("Hello! Welcome to the game of War!");
+      System.out.println("Two cards will be dealt!");
+      System.out.println("The highest card wins the war!");
+    
+    //while loop to allow for multiple games
+    while(PLAYER_CHOICE == 1){
+    System.out.println("Let's get started!");
+    
+    //call on playerCard to generate player card 
+    int player = playerCard();
+    System.out.println("Your card is: " + player);
+    
+    //call on dealerCard to generate dealer card
+    int dealer = dealerCard();
+    System.out.println("The dealer's card is: " + dealer);
+    
+    //if to determine winner and future actions
+    if (player > dealer){
+    System.out.println("You win!");
+    PLAYER_WINS ++;
+    }
+    else if (dealer > player){
+    System.out.println("I win this round!");
+    DEALER_WINS ++;
+    }
+    else{        
+    System.out.println("WAR!!!");
+    thismeanswar();
+    }//close else
+    
+    //call scorecard method to show score
+    scorecard();
+    //do you want to play
+    PLAYER_CHOICE = menusystem();    
+    } //close while
+    
+    System.out.println("Thanks for playing!");
+     }//Close main method
+  
+  public static int dealerCard() {    
+  Random randomNum = new Random(); 
+        int dealer = randomNum.nextInt(MAX_CARD);
+        return dealer;    
+  
+  }//Close dealer method    
+      
+  public static int menusystem() {   
+  int userResponse;
+        System.out.println("Do you want to play again?");
+        System.out.println("Enter 1 for yes and 2 for no.");
+        Scanner inputScanner;
+        inputScanner = new Scanner(System.in);
+        userResponse = inputScanner.nextInt();
+        return userResponse;    
+  
+  }//Close menu system   
+     
+  public static int playerCard() {     
+  Random randomNum = new Random(); 
+        int player = randomNum.nextInt(MAX_CARD);
+        return player;
+  
+  }//Close player method
+  
+  public static void scorecard() {  
+  //display values for wins
+        System.out.println("Your wins: " + PLAYER_WINS);
+        System.out.println("Dealer wins: " + DEALER_WINS);
+        System.out.println("Stalemates: " + TIES);
+        return;   
+
+  }//Close score card
+ 
+ public static void thismeanswar() {
+ //generate new player card
+        Random randomNum = new Random(); 
+        int player2 = randomNum.nextInt(MAX_CARD);
+        
+        //generate new dealer card
+        Random randomNumb = new Random(); 
+        int dealer2 = randomNumb.nextInt(MAX_CARD);
+    
+        //print out new card values
+        System.out.println("Your new card is: " + player2);    
+        System.out.println("The dealer's new card is: " + dealer2);
+        
+        //if to determine winner
+        if (player2 > dealer2){
+            System.out.println("You win the war!");
+            PLAYER_WINS ++;
+        }
+        else if (dealer2 > player2){
+            System.out.println("You lose the war!");
+            DEALER_WINS ++;
+        }
+        else {
+            System.out.println("This round is a tie!");
+            TIES ++;
+        }//close else
+        
+        return;    
+ 
+ }//Close this means war    
+     
+     
+ }
+   
+      
+
+}//Close public class
